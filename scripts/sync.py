@@ -319,28 +319,78 @@ def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
 
 # 关键词标签规则:标签 -> 匹配关键词(description 小写包含即命中)
 TAG_KEYWORDS = {
-    "ai": ["claude", "anthropic", "llm", "gpt", "openai", "agent", "ai "],
-    "coding": ["code", "coding", "programming", "代码", "编码", "开发"],
+    "ai": ["claude", "anthropic", "llm", "gpt", "openai", "agent", "ai ",
+           "人工智能", "大模型", "提示词"],
+    "coding": ["code", "coding", "programming", "代码", "编码", "开发", "编程", "snippet"],
     "frontend": ["frontend", "front-end", "web", "html", "css", "javascript",
-                  "typescript", "react", "vue", "ui"],
-    "design": ["design", "界面", "设计", "ux"],
-    "backend": ["backend", "server", "api", "database", "数据库"],
-    "python": ["python", "django", "flask"],
+                  "typescript", "react", "vue", "angular", "svelte", "next.js",
+                  "nextjs", "ui", "前端"],
+    "backend": ["backend", "server", "api", "后端", "服务端", "微服务"],
+    "design": ["design", "界面", "设计", "ux", "视觉", "样式", "美学"],
+    "python": ["python", "django", "flask", "fastapi", "pandas", "numpy", "scikit"],
     "dart": ["dart", "flutter"],
-    "test": ["test", "testing", "测试", "qa"],
-    "git": ["git", "github", "repo"],
-    "data": ["data", "sql", "analytics", "数据", "分析"],
-    "writing": ["writing", "write", "写作", "文案", "内容"],
-    "translate": ["translat", "翻译", "language", "i18n"],
-    "research": ["research", "search", "研究", "搜索"],
-    "automation": ["automation", "workflow", "自动", "工作流"],
-    "mobile": ["mobile", "android", "ios", "移动"],
+    "mobile": ["mobile", "android", "ios", "swift", "kotlin", "移动", "app", "手机"],
+    "test": ["test", "testing", "测试", "qa", "调试", "验证"],
+    "git": ["git", "github", "版本控制", "repo"],
+    "data": ["data", "sql", "analytics", "数据", "分析", "database", "etl", "报表"],
+    "data-science": ["machine learning", "ml", "数据科学", "机器学习", "深度学习",
+                      "neural", "tensorflow", "pytorch", "模型训练"],
+    "writing": ["writing", "write", "写作", "文案", "内容", "copywriting", "文章", "大纲"],
+    "translate": ["translat", "翻译", "language", "i18n", "本地化", "localization"],
+    "research": ["research", "search", "研究", "搜索", "调研", "综述"],
+    "automation": ["automation", "workflow", "自动", "工作流", "自动化", "脚本", "批处理"],
+    "devops": ["devops", "docker", "kubernetes", "k8s", "ci/cd", "部署", "运维",
+                "cloud", "aws", "azure", "gcp", "容器", "流水线"],
+    "security": ["security", "网络安全", "信息安全", "渗透测试", "漏洞扫描",
+                  "auth", "加密", "隐私"],
+    "docs": ["documentation", "文档", "doc", "readme", "手册"],
+    "game": ["game", "游戏", "unity", "unreal", "玩法"],
+    "marketing": ["marketing", "营销", "seo", "增长", "投放", "品牌"],
+    "blockchain": ["blockchain", "区块链", "web3", "solidity", "智能合约"],
+    "iot": ["iot", "物联网", "嵌入式", "embedded", "arduino", "硬件"],
 }
-MAX_TAGS = 4
+MAX_TAGS = 6
+
+# 专有名词提取时过滤的常见英文词(句首词/停用词)
+TAG_STOPWORDS = {
+    "the", "this", "that", "these", "those", "you", "your", "our", "their",
+    "for", "with", "from", "when", "before", "after", "provide", "provides",
+    "provided", "using", "used", "use", "new", "how", "why", "what", "which",
+    "will", "can", "should", "must", "not", "are", "was", "were", "have", "has",
+    "had", "its", "it", "be", "to", "of", "a", "an", "in", "on", "at", "is",
+    "as", "by", "or", "and", "but", "if", "then", "else", "do", "does", "did",
+    "being", "been", "would", "could", "might", "may", "explores", "helps",
+    "guides", "creates", "builds", "makes", "learn", "learns", "get", "gets",
+    "uis", "apis", "yes", "no", "more", "most", "all", "any", "each", "every",
+    "useful", "usefulness", "simply", "example", "note", "important",
+    "including", "includes", "ensure", "ensures", "avoid", "avoids",
+}
 
 
-def extract_tags(skill_file: Path, description: str) -> list[str]:
-    """为 Skill 打标签:优先读 frontmatter 的 tags 字段,否则按关键词库从 description 提取。"""
+def extract_technical_terms(text: str) -> list[str]:
+    """从描述中提取大写开头的专有名词(技术栈名,如 GoRouter / BLoC / Riverpod)。
+
+    不用 \\b 边界:英文专有名词后紧跟日文/中文词符时 \\b 会失效,
+    改用前后非 [A-Za-z0-9] 的 lookaround。
+    """
+    terms = []
+    for m in re.finditer(r"(?<![A-Za-z0-9])[A-Z][A-Za-z0-9]{2,}(?![A-Za-z0-9])", text or ""):
+        w = m.group()
+        if w.lower() in TAG_STOPWORDS:
+            continue
+        if w not in terms:
+            terms.append(w)
+    return terms
+
+
+def extract_tags(skill_file: Path, description: str, extra_text: str = "") -> list[str]:
+    """为 Skill 打标签,按准确度排序:
+
+    1. frontmatter 的 tags 字段(最准确,直接采用);
+    2. 双语功能词典匹配(description + 名称/文件路径);
+    3. description 中的技术专有名词(如 GoRouter / BLoC);
+    合并去重(大小写不敏感),最多 MAX_TAGS 个。
+    """
     data = parse_skill_file(skill_file)
     if isinstance(data, dict):
         raw = data.get("tags") or data.get("Tags")
@@ -354,9 +404,36 @@ def extract_tags(skill_file: Path, description: str) -> list[str]:
                 return tags[:MAX_TAGS]
     if not description:
         return []
-    low = description.lower()
-    tags = [tag for tag, kws in TAG_KEYWORDS.items() if any(k in low for k in kws)]
-    return tags[:MAX_TAGS]
+    low = (description + " " + extra_text).lower()
+    dict_tags = [tag for tag, kws in TAG_KEYWORDS.items() if any(k in low for k in kws)]
+    tech_terms = extract_technical_terms(description)
+
+    merged, seen = [], set()
+    for t in dict_tags + tech_terms:
+        key = t.lower()
+        if key not in seen:
+            seen.add(key)
+            merged.append(t)
+    return merged[:MAX_TAGS]
+
+
+def sync_skill_tags(config: dict, items: list[dict]) -> None:
+    """把自动标签补进 config.json 的 skill_tags(仅新增缺失 URL,不覆盖手动标签)。"""
+    manual = config.get("skill_tags")
+    if not isinstance(manual, dict):
+        manual = {}
+    added = 0
+    for item in items:
+        url = item.get("source_url")
+        tags = item.get("tags")
+        if url and tags and url not in manual:
+            manual[url] = tags
+            added += 1
+    if added:
+        config["skill_tags"] = manual
+        CONFIG_PATH.write_text(
+            json.dumps(config, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        log(f"已自动更新 {CONFIG_PATH} 的 skill_tags(新增 {added} 个 URL)")
 
 
 # ---------------------------------------------------------------- 主流程
@@ -384,7 +461,7 @@ def process_url(url: str, cache: dict, translate, copy_dest: Path | None = None,
         else:
             log(f"  提取到 description({len(description)} 字符)")
         description_zh, _ = translate_with_cache(cache, translate, description)
-        tags = extract_tags(skill_file, description)
+        tags = extract_tags(skill_file, description, extra_text=info["name_hint"])
 
         if copy_dest is not None:
             target = copy_skill_dir(skill_file.parent, copy_dest,
@@ -493,6 +570,9 @@ def main() -> int:
         except Exception as e:
             failures.append((url, str(e)))
             log(f"[ERROR] 跳过该条目: {e}")
+
+    # 自动补齐 config.json 的 skill_tags(新 URL 自动打标签,已有手动标签不动)
+    sync_skill_tags(config, items)
 
     # 手动功能标签:config.json 的 "skill_tags"(URL -> 标签数组)覆盖自动标签,
     # 便于针对每个收藏的 Skill 按其实际功能打上更贴切的标签。

@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "skills-collection bot"
           git config user.email "actions@github.com"
-          git add public/ skills/ translation_cache.json
+          git add public/ skills/ translation_cache.json config.json
           if git diff --cached --quiet; then
             echo "无变更,跳过提交"
           else

@@ -81,13 +81,13 @@ skills-collection/
 
 ### 标签(`tags`)
 
-每个 Skill 会生成 1–4 个标签,写入 `skills.json` 的 `tags` 字段,前端以徽章展示(点击标签可筛选):
+每个 Skill 会生成 1–6 个标签,写入 `skills.json` 的 `tags` 字段,前端以徽章展示(点击标签可筛选)。标签按准确度自动生成:
 
-1. **优先**读取 Skill 文件 frontmatter 的 `tags` 字段(支持数组或逗号分隔字符串);
-2. 若没有,则按内置关键词库从 `description` 自动匹配(如 `ai` / `coding` / `frontend` / `design` / `python` / `dart` / `test` / `data` / `writing` / `translate` / `mobile` 等);
-3. 都无命中则为空数组。
+1. **frontmatter 的 `tags` 字段**(最准确,直接采用);
+2. **双语功能词典**匹配 `description` / 名称 / 文件路径(覆盖 ai / frontend / backend / design / python / dart / mobile / devops / security / data-science / writing / translate 等 24 类主题);
+3. **技术专有名词提取**:从 `description` 抓取大写开头的技术栈名(如 `GoRouter`、`BLoC`、`Riverpod`、`Dio`),自动过滤常见英文停用词。
 
-**推荐:在 `config.json` 用 `skill_tags` 按 URL 手动指定功能标签**,会覆盖上述自动标签。适合远程仓库里无法修改的 Skill 文件,且重新同步不会丢失:
+**`skill_tags` 自动维护**:`sync.py` 每次运行会把新 URL 的自动标签写回 `config.json` 的 `skill_tags` 字段(仅新增缺失的 URL,**不覆盖**你手动改过的标签)。也就是说,你只需要维护 `skills` 列表,标签会自动补齐;想微调某个 Skill 的标签,直接改 `config.json` 里对应 URL 的数组即可:
 
 ```json
 {
@@ -98,7 +98,7 @@ skills-collection/
 }
 ```
 
-（也可以在 Skill 文件 frontmatter 里加 `tags: [frontend, react]`,但会被 `skills/` 重新同步覆盖,`skill_tags` 才是持久的做法）
+（想完全回归自动标签,删掉 `skill_tags` 键即可;工作流会自动把更新后的 `config.json` 一并提交）
 
 ### 订阅地址(RSS)
 
