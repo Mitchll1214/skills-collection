@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web and mobile. Searchable local database with 84 styles, 192 color palettes, 74 font pairings, 192 product types, 98 UX guidelines, 104 icon entries, 16 GSAP motion presets, and 25 chart types across 22 stacks (React, Next.js, Vue, Nuxt, Svelte, Astro, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, JavaFX, WPF, WinUI, Avalonia, Uno Platform, UWP, Three.js, and HTML/CSS). Use when designing, building, or reviewing UI: pages, components, color schemes, typography, layout, accessibility, animation, or data visualization.",
     "description_zh": "适用于网络和移动设备的 UI/UX 设计智能。可搜索的本地数据库，包含 84 种样式、192 种调色板、74 种字体配对、192 种产品类型、98 种 UX 指南、104 个图标条目、16 个 GSAP 运动预设以及 22 个堆栈中的 25 种图表类型（React、Next.js、Vue、Nuxt、Svelte、Astro、SwiftUI、React Native、Flutter、Tailwind、shadcn/ui、Jetpack Compose、 Angular、Laravel、JavaFX、WPF、WinUI、Avalonia、Uno Platform、UWP、Three.js 和 HTML/CSS）。在设计、构建或审查 UI 时使用：页面、组件、配色方案、版式、布局、可访问性、动画或数据可视化。",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "14ddef5c05e52d7c253b8f0129de7bcd1045ae5b",
+    "commit": "4d140cf8ff6842de13213c7214eff3810371beb2",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -108,6 +108,23 @@
       "移动开发",
       "翻译",
       "Apple"
+    ]
+  },
+  {
+    "name": "hallmark",
+    "description": "Anti-AI-slop design skill for greenfield pages, audits, redesigns, and design extraction from URLs or screenshots. Use when the user asks to build a new app or landing page, wants to redesign something, invokes Hallmark by name, or uses audit/redesign/study.",
+    "description_zh": "针对新建页面、审核、重新设计以及从 URL 或屏幕截图中提取设计的反 AI 设计技能。当用户要求构建新应用程序或登录页面、想要重新设计某些内容、按名称调用 Hallmark 或使用审核/重新设计/研究时使用。",
+    "source_url": "https://github.com/Nutlope/hallmark/tree/main/skills/hallmark",
+    "commit": "aeb42fb354ff4efa36ab475773a082315a3af2ce",
+    "file": "SKILL.md",
+    "branch": "main",
+    "tags": [
+      "人工智能",
+      "前端开发",
+      "界面设计",
+      "移动开发",
+      "Anti",
+      "URLs"
     ]
   }
 ]
