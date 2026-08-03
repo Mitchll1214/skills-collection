@@ -85,6 +85,7 @@ skills-collection/
 | --- | --- | --- |
 | `skills` | ✅ | GitHub URL 字符串数组 |
 | `skills_dir` | ❌ | 原始 Skill 拷贝目录,默认 `"skills"`;设 `null` / `""` / `false` 关闭拷贝 |
+| `skills_incremental` | ❌ | Skill 拷贝模式,默认 `true`(**增量**:只补充缺失,保留已有);`false` 为全量(每次清空重建) |
 | `skill_tags` | ❌ | URL → 标签数组的映射,**自动维护**(见「标签系统」),也可手动覆盖 |
 
 ### 支持的 URL 形态
@@ -155,7 +156,8 @@ description 支持 YAML frontmatter(Markdown)、纯 YAML、JSON;提取失败时�
 
 - 默认 `skills/`,每个 Skill 一个子目录;重名自动追加序号(`skills-2`)
 - 通过 `config.json` 的 `skills_dir` 指定任意文件夹(绝对/相对路径均可),或环境变量 `SKILLS_DIR`
-- 该目录由脚本**完全管理**(每次运行先清空再重建),请勿手动放文件
+- **增量模式(默认)**:`skills/` 按增量维护——已存在的 Skill 目录跳过拷贝、你手动放入的文件不受影响,新增 URL 只补充新增目录;设置 `"skills_incremental": false` 可切换全量模式(每次清空重建)
+- 注意:增量模式下从 `config.json` 删除的 URL,其 `skills/` 目录不会自动删除,需手动清理或临时用一次全量模式
 
 ---
 
@@ -198,9 +200,17 @@ description 支持 YAML frontmatter(Markdown)、纯 YAML、JSON;提取失败时�
 - 每日 UTC 03:00 定时
 - 手动触发(仓库 Actions 页 → **Run workflow**)
 
-流程:检出 → 安装依赖 → `python scripts/sync.py` → 自动提交 `public/`、`skills/`、`translation_cache.json`、`config.json` 的变更回 `main`。
+完整流程:
 
-**防循环构建**:自动化提交(如 `skill_tags` 写回、同步产物)的 commit message 带 `[skip ci]`,GitHub 不会为这类提交再次触发工作流;只有你手动提交的代码/配置变更才会触发,避免无限循环。
+1. **触发**:你推送 `config.json`(新增/修改 `skills`)或其他代码到 `main`,或定时/手动触发;
+2. **同步**:`python scripts/sync.py` 拉取每个 Skill(稀疏检出)→ 提取描述 → 翻译 → 自动打标签;
+3. **写回**:新 URL 的标签自动写入 `config.json` 的 `skill_tags`;增量补充 `skills/` 缺失的目录;
+4. **提交**:自动提交 `public/`、`skills/`、`translation_cache.json`、`config.json` 的变更回 `main`(带 `[skip ci]`,不触发新一轮构建);
+5. **部署**:提交更新 `main` → Cloudflare Pages 自动重新部署(也可在工作流末尾显式触发,见下)。
+
+**防循环构建**:自动化提交的 commit message 带 `[skip ci]`,GitHub 不会为这类提交再次触发工作流;只有你手动提交的代码/配置变更才会触发,避免无限循环。
+
+**可选:显式触发 Cloudflare 部署**:在仓库 Settings → **Secrets and variables → Actions** 添加名为 `CF_DEPLOY_HOOK` 的 secret(值为 Cloudflare Pages 项目 **Settings → Builds & deployments → Deploy Hooks** 创建的 Webhook URL)。配置后工作流会在同步完成后直接 `curl` 触发部署;未配置时跳过,仍由「main 更新触发 Pages 自动部署」兜底。
 
 > 提交/推送使用内置 `GITHUB_TOKEN` 自写步骤,不依赖任何第三方 action(无 Node 20 弃用警告)。
 

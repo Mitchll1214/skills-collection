@@ -44,3 +44,12 @@ jobs:
             git commit -m "chore: sync skills (auto) [skip ci]"
             git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
+
+      # 显式触发 Cloudflare Pages 部署(可选):
+      # 在仓库 Settings -> Secrets 添加 CF_DEPLOY_HOOK(Pages 项目创建的 Deploy Hook URL)后生效;
+      # 未配置时跳过,仍由「main 更新触发 Pages 自动部署」兜底。
+      - name: 触发 Cloudflare Pages 部署(可选)
+        if: ${{ env.CF_DEPLOY_HOOK != '' }}
+        env:
+          CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: curl -sf -X POST "$CF_DEPLOY_HOOK"

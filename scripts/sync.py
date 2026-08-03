@@ -301,9 +301,17 @@ def force_rmtree(path: Path) -> None:
         pass
 
 
-def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
-    """把 Skill 所在目录完整拷贝到 dest/<name>/,名称冲突时自动追加序号。"""
+def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set,
+                   incremental: bool = True) -> tuple[Path, bool]:
+    """把 Skill 所在目录拷贝到 dest/<name>/,名称冲突时自动追加序号。
+
+    返回 (目标目录, 是否实际拷贝)。incremental=True(默认)时目标已存在则跳过。
+    """
     dest.mkdir(parents=True, exist_ok=True)
+    target = dest / name
+    if incremental and target.exists():
+        used_names.add(name)
+        return target, False
     candidate, i, target = name, 2, dest / name
     while candidate in used_names or target.exists():
         candidate = f"{name}-{i}"
@@ -312,7 +320,7 @@ def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
     used_names.add(candidate)
     shutil.copytree(src, target, dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns(".git"))
-    return target
+    return target, True
 
 
 # ---------------------------------------------------------------- 标签提取
@@ -449,7 +457,7 @@ def sync_skill_tags(config: dict, items: list[dict]) -> None:
 # ---------------------------------------------------------------- 主流程
 
 def process_url(url: str, cache: dict, translate, copy_dest: Path | None = None,
-                used_names: set | None = None) -> dict:
+                used_names: set | None = None, incremental: bool = True) -> dict:
     info = parse_url(url)
     log(f"[{info['name_hint']}] 拉取 {info['repo_url']}"
         f" (分支={info['branch']}, 子路径={info['subpath'] or '/'})")
@@ -474,9 +482,12 @@ def process_url(url: str, cache: dict, translate, copy_dest: Path | None = None,
         tags = extract_tags(skill_file, description, extra_text=info["name_hint"])
 
         if copy_dest is not None:
-            target = copy_skill_dir(skill_file.parent, copy_dest,
-                                    info["name_hint"], used_names)
-            log(f"  已拷贝原始 Skill 到 {target.relative_to(ROOT)}")
+            target, copied = copy_skill_dir(skill_file.parent, copy_dest,
+                                            info["name_hint"], used_names, incremental)
+            if copied:
+                log(f"  已拷贝原始 Skill 到 {target.relative_to(ROOT)}")
+            else:
+                log(f"  增量模式:已存在,跳过拷贝 {target.relative_to(ROOT)}")
 
         file_rel = skill_file.relative_to(root).as_posix()
         item = {
@@ -567,16 +578,21 @@ def main() -> int:
                 or copy_dest in (ROOT / "public", ROOT / "site", ROOT / "scripts"):
             log(f"[ERROR] skills_dir 路径不合法(会清空项目关键目录): {raw_dir}")
             return 1
+        # skills 同步模式:增量(默认)只补充缺失,full 每次清空重建
+        incremental = bool(config.get("skills_incremental", True))
         if copy_dest.exists():
-            log(f"清空拷贝目录 {copy_dest}(该目录由脚本完全管理)")
-            force_rmtree(copy_dest)
+            if incremental:
+                log(f"增量模式:保留 {copy_dest} 已有内容,仅补充缺失的 Skill")
+            else:
+                log(f"全量模式:清空拷贝目录 {copy_dest}(该目录由脚本完全管理)")
+                force_rmtree(copy_dest)
         copy_dest.mkdir(parents=True, exist_ok=True)
         used_names = set()
 
     for i, url in enumerate(urls, 1):
         log(f"[{i}/{len(urls)}] 处理: {url}")
         try:
-            items.append(process_url(url, cache, translate, copy_dest, used_names))
+            items.append(process_url(url, cache, translate, copy_dest, used_names, incremental))
         except Exception as e:
             failures.append((url, str(e)))
             log(f"[ERROR] 跳过该条目: {e}")
