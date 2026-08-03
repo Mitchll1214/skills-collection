@@ -440,6 +440,12 @@ body {
   padding: 1px 7px;
 }
 
+.copyright {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 640px) {
   .hero { padding: 40px 16px 36px; }
