@@ -15,3 +15,7 @@ skills-test/
 .vscode/
 .idea/
 .DS_Store
+
+# Reasonix 工具本地状态(每次会话自动变动,不应入库)
+.reasonix/
+
