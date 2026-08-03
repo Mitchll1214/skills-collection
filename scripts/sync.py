@@ -488,6 +488,17 @@ def main() -> int:
             failures.append((url, str(e)))
             log(f"[ERROR] 跳过该条目: {e}")
 
+    # 手动功能标签:config.json 的 "skill_tags"(URL -> 标签数组)覆盖自动标签,
+    # 便于针对每个收藏的 Skill 按其实际功能打上更贴切的标签。
+    manual_tags = config.get("skill_tags")
+    if isinstance(manual_tags, dict):
+        for item in items:
+            tags = manual_tags.get(item["source_url"])
+            if isinstance(tags, list):
+                cleaned = [str(t).strip() for t in tags if str(t).strip()]
+                if cleaned:
+                    item["tags"] = cleaned[:MAX_TAGS]
+
     save_cache(cache)
 
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)

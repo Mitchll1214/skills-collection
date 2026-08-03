@@ -87,15 +87,18 @@ skills-collection/
 2. 若没有,则按内置关键词库从 `description` 自动匹配(如 `ai` / `coding` / `frontend` / `design` / `python` / `dart` / `test` / `data` / `writing` / `translate` / `mobile` 等);
 3. 都无命中则为空数组。
 
-自定义标签最直接的方式是在你的 Skill 文件 frontmatter 里加:
+**推荐:在 `config.json` 用 `skill_tags` 按 URL 手动指定功能标签**,会覆盖上述自动标签。适合远程仓库里无法修改的 Skill 文件,且重新同步不会丢失:
 
-```yaml
----
-name: my-skill
-description: xxx
-tags: [frontend, react]
----
+```json
+{
+  "skills": ["https://github.com/user/repo/tree/main/skills/foo"],
+  "skill_tags": {
+    "https://github.com/user/repo/tree/main/skills/foo": ["移动开发", "架构模式"]
+  }
+}
 ```
+
+（也可以在 Skill 文件 frontmatter 里加 `tags: [frontend, react]`,但会被 `skills/` 重新同步覆盖,`skill_tags` 才是持久的做法）
 
 ### 订阅地址(RSS)
 
