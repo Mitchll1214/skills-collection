@@ -84,7 +84,7 @@ skills-collection/
 每个 Skill 会生成 1–6 个标签,写入 `skills.json` 的 `tags` 字段,前端以徽章展示(点击标签可筛选)。标签按准确度自动生成:
 
 1. **frontmatter 的 `tags` 字段**(最准确,直接采用);
-2. **双语功能词典**匹配 `description` / 名称 / 文件路径(覆盖 ai / frontend / backend / design / python / dart / mobile / devops / security / data-science / writing / translate 等 24 类主题);
+2. **双语功能词典**匹配 `description` / 名称 / 文件路径(标签全部中文,覆盖 人工智能 / 编程开发 / 前端开发 / 后端开发 / 界面设计 / Python 开发 / Flutter 开发 / 移动开发 / 软件测试 / 数据处理 / 机器学习 / 运维部署 / 写作 / 翻译 等 24 类主题);
 3. **技术专有名词提取**:从 `description` 抓取大写开头的技术栈名(如 `GoRouter`、`BLoC`、`Riverpod`、`Dio`),自动过滤常见英文停用词。
 
 **`skill_tags` 自动维护**:`sync.py` 每次运行会把新 URL 的自动标签写回 `config.json` 的 `skill_tags` 字段(仅新增缺失的 URL,**不覆盖**你手动改过的标签)。也就是说,你只需要维护 `skills` 列表,标签会自动补齐;想微调某个 Skill 的标签,直接改 `config.json` 里对应 URL 的数组即可:

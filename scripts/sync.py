@@ -319,35 +319,35 @@ def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
 
 # 关键词标签规则:标签 -> 匹配关键词(description 小写包含即命中)
 TAG_KEYWORDS = {
-    "ai": ["claude", "anthropic", "llm", "gpt", "openai", "agent", "ai ",
-           "人工智能", "大模型", "提示词"],
-    "coding": ["code", "coding", "programming", "代码", "编码", "开发", "编程", "snippet"],
-    "frontend": ["frontend", "front-end", "web", "html", "css", "javascript",
-                  "typescript", "react", "vue", "angular", "svelte", "next.js",
-                  "nextjs", "ui", "前端"],
-    "backend": ["backend", "server", "api", "后端", "服务端", "微服务"],
-    "design": ["design", "界面", "设计", "ux", "视觉", "样式", "美学"],
-    "python": ["python", "django", "flask", "fastapi", "pandas", "numpy", "scikit"],
-    "dart": ["dart", "flutter"],
-    "mobile": ["mobile", "android", "ios", "swift", "kotlin", "移动", "app", "手机"],
-    "test": ["test", "testing", "测试", "qa", "调试", "验证"],
-    "git": ["git", "github", "版本控制", "repo"],
-    "data": ["data", "sql", "analytics", "数据", "分析", "database", "etl", "报表"],
-    "data-science": ["machine learning", "ml", "数据科学", "机器学习", "深度学习",
-                      "neural", "tensorflow", "pytorch", "模型训练"],
-    "writing": ["writing", "write", "写作", "文案", "内容", "copywriting", "文章", "大纲"],
-    "translate": ["translat", "翻译", "language", "i18n", "本地化", "localization"],
-    "research": ["research", "search", "研究", "搜索", "调研", "综述"],
-    "automation": ["automation", "workflow", "自动", "工作流", "自动化", "脚本", "批处理"],
-    "devops": ["devops", "docker", "kubernetes", "k8s", "ci/cd", "部署", "运维",
-                "cloud", "aws", "azure", "gcp", "容器", "流水线"],
-    "security": ["security", "网络安全", "信息安全", "渗透测试", "漏洞扫描",
-                  "auth", "加密", "隐私"],
-    "docs": ["documentation", "文档", "doc", "readme", "手册"],
-    "game": ["game", "游戏", "unity", "unreal", "玩法"],
-    "marketing": ["marketing", "营销", "seo", "增长", "投放", "品牌"],
-    "blockchain": ["blockchain", "区块链", "web3", "solidity", "智能合约"],
-    "iot": ["iot", "物联网", "嵌入式", "embedded", "arduino", "硬件"],
+    "人工智能": ["claude", "anthropic", "llm", "gpt", "openai", "agent", "ai ",
+             "人工智能", "大模型", "提示词"],
+    "编程开发": ["code", "coding", "programming", "代码", "编码", "开发", "编程", "snippet"],
+    "前端开发": ["frontend", "front-end", "web", "html", "css", "javascript",
+              "typescript", "react", "vue", "angular", "svelte", "next.js",
+              "nextjs", "ui", "前端"],
+    "后端开发": ["backend", "server", "api", "后端", "服务端", "微服务"],
+    "界面设计": ["design", "界面", "设计", "ux", "视觉", "样式", "美学"],
+    "Python 开发": ["python", "django", "flask", "fastapi", "pandas", "numpy", "scikit"],
+    "Flutter 开发": ["dart", "flutter"],
+    "移动开发": ["mobile", "android", "ios", "swift", "kotlin", "移动", "app", "手机"],
+    "软件测试": ["test", "testing", "测试", "qa", "调试", "验证"],
+    "版本控制": ["git", "github", "版本控制", "repo"],
+    "数据处理": ["data", "sql", "analytics", "数据", "分析", "database", "etl", "报表"],
+    "机器学习": ["machine learning", "ml", "数据科学", "机器学习", "深度学习",
+              "neural", "tensorflow", "pytorch", "模型训练"],
+    "写作": ["writing", "write", "写作", "文案", "内容", "copywriting", "文章", "大纲"],
+    "翻译": ["translat", "翻译", "language", "i18n", "本地化", "localization"],
+    "研究": ["research", "search", "研究", "搜索", "调研", "综述"],
+    "自动化": ["automation", "workflow", "自动", "工作流", "自动化", "脚本", "批处理"],
+    "运维部署": ["devops", "docker", "kubernetes", "k8s", "ci/cd", "部署", "运维",
+               "cloud", "aws", "azure", "gcp", "容器", "流水线"],
+    "安全": ["security", "网络安全", "信息安全", "渗透测试", "漏洞扫描",
+            "auth", "加密", "隐私"],
+    "文档": ["documentation", "文档", "doc", "readme", "手册"],
+    "游戏开发": ["game", "游戏", "unity", "unreal", "玩法"],
+    "营销": ["marketing", "营销", "seo", "增长", "投放", "品牌"],
+    "区块链": ["blockchain", "区块链", "web3", "solidity", "智能合约"],
+    "物联网": ["iot", "物联网", "嵌入式", "embedded", "arduino", "硬件"],
 }
 MAX_TAGS = 6
 
@@ -377,6 +377,9 @@ def extract_technical_terms(text: str) -> list[str]:
     for m in re.finditer(r"(?<![A-Za-z0-9])[A-Z][A-Za-z0-9]{2,}(?![A-Za-z0-9])", text or ""):
         w = m.group()
         if w.lower() in TAG_STOPWORDS:
+            continue
+        # 过滤全大写通用缩写(SQL/API/HTML 等,非品牌专名);BLoC、GoRouter 等不受影响
+        if w.isupper() and len(w) <= 5:
             continue
         if w not in terms:
             terms.append(w)
@@ -409,11 +412,18 @@ def extract_tags(skill_file: Path, description: str, extra_text: str = "") -> li
     tech_terms = extract_technical_terms(description)
 
     merged, seen = [], set()
-    for t in dict_tags + tech_terms:
+    for t in dict_tags:
+        seen.add(t.lower())
+        merged.append(t)
+    for t in tech_terms:
         key = t.lower()
-        if key not in seen:
-            seen.add(key)
-            merged.append(t)
+        if key in seen:
+            continue
+        # 专有名词与中文主题标签重叠时(如 Flutter vs Flutter 开发)跳过,避免冗余
+        if any(key in d.lower() or d.lower() in key for d in merged):
+            continue
+        seen.add(key)
+        merged.append(t)
     return merged[:MAX_TAGS]
 
 
