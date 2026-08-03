@@ -93,7 +93,7 @@ body {
 .hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 1080px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
@@ -158,7 +158,7 @@ body {
 
 /* ---------- 主体 ---------- */
 .container {
-  max-width: 1080px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 28px 20px 56px;
 }
@@ -259,10 +259,10 @@ body {
 }
 
 /* ---------- 卡片网格 ---------- */
-/* 自适应列数:列宽随容器伸缩(宽屏自动更多列),窄屏自动收窄,移动端单列 */
+/* 自适应列数:宽屏更多列,列宽随容器伸缩;移动端单列 */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
 }
 
