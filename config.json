@@ -8,8 +8,46 @@
     "https://github.com/Dammyjay93/interface-design/tree/main/.claude/skills/interface-design"
   ],
   "skill_tags": {
-    "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns": ["dart", "flutter", "移动开发", "架构模式"],
-    "https://github.com/anthropics/skills/tree/main/skills/frontend-design": ["frontend", "ui设计", "视觉设计", "设计规范"],
-    "https://github.com/obra/superpowers/tree/main/skills": ["需求探索", "创意规划", "头脑风暴", "工作流"]
+    "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns": [
+      "dart",
+      "flutter",
+      "移动开发",
+      "架构模式"
+    ],
+    "https://github.com/anthropics/skills/tree/main/skills/frontend-design": [
+      "frontend",
+      "ui设计",
+      "视觉设计",
+      "设计规范"
+    ],
+    "https://github.com/obra/superpowers/tree/main/skills": [
+      "需求探索",
+      "创意规划",
+      "头脑风暴",
+      "工作流"
+    ],
+    "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui": [
+      "编程开发",
+      "前端开发",
+      "界面设计",
+      "Design",
+      "Triggers"
+    ],
+    "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max": [
+      "前端开发",
+      "界面设计",
+      "Flutter 开发",
+      "移动开发",
+      "数据处理",
+      "机器学习"
+    ],
+    "https://github.com/Dammyjay93/interface-design/tree/main/.claude/skills/interface-design": [
+      "前端开发",
+      "界面设计",
+      "移动开发",
+      "数据处理",
+      "营销",
+      "Craft"
+    ]
   }
 }

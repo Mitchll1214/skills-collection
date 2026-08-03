@@ -53,9 +53,11 @@
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
-      "coding",
-      "frontend",
-      "design"
+      "编程开发",
+      "前端开发",
+      "界面设计",
+      "Design",
+      "Triggers"
     ]
   },
   {
@@ -67,10 +69,29 @@
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
-      "frontend",
-      "design",
-      "backend",
-      "dart"
+      "前端开发",
+      "界面设计",
+      "Flutter 开发",
+      "移动开发",
+      "数据处理",
+      "机器学习"
+    ]
+  },
+  {
+    "name": "interface-design",
+    "description": "Craft-first interface design for dashboards, admin panels, SaaS apps, tools, settings pages, data interfaces, and interactive products. Use when designing, building, reviewing, auditing, or refining product UI where visual craft, layout hierarchy, tokens, states, visual direction, or design-system consistency matter. Not for marketing pages, landing pages, campaigns, or brand-only work.",
+    "description_zh": "针对仪表板、管理面板、SaaS 应用程序、工具、设置页面、数据接口和交互式产品的工艺优先的界面设计。在设计、构建、审查、审核或完善产品 UI 时使用，其中视觉工艺、布局层次结构、标记、状态、视觉方向或设计系统一致性很重要。不适用于营销页面、登陆页面、活动或纯品牌工作。",
+    "source_url": "https://github.com/Dammyjay93/interface-design/tree/main/.claude/skills/interface-design",
+    "commit": "2f9be3206855bcb2d1d0af262c8bae25cba6658d",
+    "file": "SKILL.md",
+    "branch": "main",
+    "tags": [
+      "前端开发",
+      "界面设计",
+      "移动开发",
+      "数据处理",
+      "营销",
+      "Craft"
     ]
   }
 ]
