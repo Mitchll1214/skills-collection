@@ -1,9 +1,9 @@
 name: sync
 
 on:
+  # 任何提交到 main 的代码/config 变更都会触发同步
   push:
     branches: [main]
-    paths: [config.json]
   schedule:
     # 每日凌晨 3 点(UTC)定时同步
     - cron: "0 3 * * *"
@@ -40,6 +40,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "无变更,跳过提交"
           else
-            git commit -m "chore: sync skills (auto)"
+            # [skip ci] 让自动提交不触发新一轮构建,避免循环
+            git commit -m "chore: sync skills (auto) [skip ci]"
             git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi

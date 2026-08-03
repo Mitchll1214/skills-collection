@@ -194,11 +194,13 @@ description 支持 YAML frontmatter(Markdown)、纯 YAML、JSON;提取失败时�
 
 `.github/workflows/sync.yml` 触发时机:
 
-- `push` 到 `main` 且修改了 `config.json`
+- **`push` 到 `main`**(任何文件变更:代码 / `config.json` / `site/` 等)
 - 每日 UTC 03:00 定时
 - 手动触发(仓库 Actions 页 → **Run workflow**)
 
 流程:检出 → 安装依赖 → `python scripts/sync.py` → 自动提交 `public/`、`skills/`、`translation_cache.json`、`config.json` 的变更回 `main`。
+
+**防循环构建**:自动化提交(如 `skill_tags` 写回、同步产物)的 commit message 带 `[skip ci]`,GitHub 不会为这类提交再次触发工作流;只有你手动提交的代码/配置变更才会触发,避免无限循环。
 
 > 提交/推送使用内置 `GITHUB_TOKEN` 自写步骤,不依赖任何第三方 action(无 Node 20 弃用警告)。
 
