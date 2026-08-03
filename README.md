@@ -27,6 +27,7 @@ skills-collection/
 │   ├── style.css
 │   ├── app.js
 │   └── skills.json           # 脚本生成的 Skill 元数据
+├── skills/                   # 原始 Skill 文件拷贝(脚本生成,默认) — 可整目录打包带走
 ├── translation_cache.json    # 翻译缓存(自动生成,建议提交到仓库)
 ├── requirements.txt
 ├── .github/workflows/sync.yml
@@ -60,6 +61,22 @@ skills-collection/
 
 > 分支默认 `main`;URL 中的 `/tree/` 或 `/blob/` 后第一段为分支名。若指定分支不存在,脚本自动回退到仓库默认分支。
 
+### 原始 Skill 拷贝(`skills_dir`)
+
+同步时会把每个 Skill 所在目录**完整拷贝**到本地,方便一次性拉取收藏的 Skill(可整目录打包带走,不含 `.git`)。
+
+- 默认拷贝到根目录 `skills/`,每个 Skill 一个子目录(`skills/<name>/`);重名自动追加序号(如 `skills-2`)。
+- 可通过 `config.json` 的可选字段 `"skills_dir"` 指定任意文件夹(绝对/相对路径均可);设为 `null` / `""` / `false` 则关闭拷贝。
+- 也可用环境变量 `SKILLS_DIR` 覆盖。
+- 注意:该目录由脚本**完全管理**,每次运行会先清空再重建(与 `public/` 一致),不要手动往里放文件。
+
+```json
+{
+  "skills_dir": "my-skills",
+  "skills": ["https://github.com/user/repo/tree/main/skills/foo"]
+}
+```
+
 查找 Skill 文件的优先级:目录下的 `SKILL.md` / `skill.yaml` / `skill.yml` / `skill.json`(大小写不敏感)→ 若无,则取第一个支持扩展名(`.md/.yaml/.yml/.json/.txt`)的文件。
 
 ---
@@ -77,6 +94,7 @@ python scripts/sync.py
 
 - `public/skills.json` — 所有 Skill 元数据数组(每项含 `name` / `description` / `description_zh` / `source_url` / `commit` / `file` / `branch`)
 - `translation_cache.json` — 翻译缓存(原文 MD5 → 译文)
+- `skills/` — 每个收藏 Skill 的原始文件拷贝(默认,见上文 `skills_dir` 配置)
 - `public/` 下会同步复制 `site/` 的静态文件
 
 本地预览(注意:`file://` 直接双击无法跨文件 fetch,请用本地服务器):

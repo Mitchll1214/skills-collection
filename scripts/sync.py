@@ -25,6 +25,7 @@ import json
 import os
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -82,25 +83,29 @@ def fetch_repo(repo_url: str, subpath: str, branch: str, dest: Path) -> None:
     - 子路径非空:--filter=blob:none --sparse + sparse-checkout set
     若指定分支不存在,自动回退到仓库默认分支。
     """
+    def clone_once(with_branch: bool) -> None:
+        args = ["clone", "--depth", "1"]
+        if subpath:
+            args += ["--filter=blob:none", "--sparse"]
+        if with_branch:
+            args += ["--branch", branch]
+        git(*args, repo_url, str(dest))
+
+    try:
+        clone_once(True)
+    except RuntimeError:
+        log(f"  分支 '{branch}' 检出失败,回退到仓库默认分支")
+        force_rmtree(dest)  # 清理首次失败可能残留的目录,避免二次 clone 冲突
+        if dest.exists():
+            raise RuntimeError(f"无法清理首次克隆的残留目录 {dest},放弃重试")
+        clone_once(False)
+
     if subpath:
-        try:
-            git("clone", "--depth", "1", "--filter=blob:none", "--sparse",
-                "--branch", branch, repo_url, str(dest))
-        except RuntimeError:
-            log(f"  分支 '{branch}' 检出失败,回退到仓库默认分支")
-            git("clone", "--depth", "1", "--filter=blob:none", "--sparse",
-                repo_url, str(dest))
         git("sparse-checkout", "set", subpath, cwd=dest)
         try:
             git("checkout", branch, cwd=dest)
         except RuntimeError:
             pass  # 默认分支场景无需切换
-    else:
-        try:
-            git("clone", "--depth", "1", "--branch", branch, repo_url, str(dest))
-        except RuntimeError:
-            log(f"  分支 '{branch}' 检出失败,回退到仓库默认分支")
-            git("clone", "--depth", "1", repo_url, str(dest))
 
 
 # ---------------------------------------------------------------- URL 解析
@@ -265,9 +270,49 @@ def translate_with_cache(cache: dict, translate, text: str) -> tuple[str, bool]:
     return result, False
 
 
+# ---------------------------------------------------------------- 原始 Skill 拷贝
+
+def force_rmtree(path: Path) -> None:
+    """删除目录,先清除只读属性(Windows 下 git 的 pack 文件为只读)。"""
+    if not path.exists():
+        return
+    for root, dirs, files in os.walk(path):
+        for name in dirs + files:
+            try:
+                os.chmod(os.path.join(root, name), stat.S_IWRITE)
+            except OSError:
+                pass
+
+    def _onerror(func, p, exc_info):
+        try:
+            os.chmod(p, stat.S_IWRITE)
+            func(p)
+        except OSError:
+            pass
+
+    if sys.version_info >= (3, 12):
+        shutil.rmtree(path, onexc=_onerror)
+    else:
+        shutil.rmtree(path, onerror=_onerror)
+
+
+def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
+    """把 Skill 所在目录完整拷贝到 dest/<name>/,名称冲突时自动追加序号。"""
+    dest.mkdir(parents=True, exist_ok=True)
+    candidate, i, target = name, 2, dest / name
+    while candidate in used_names or target.exists():
+        candidate = f"{name}-{i}"
+        target = dest / candidate
+        i += 1
+    used_names.add(candidate)
+    shutil.copytree(src, target, ignore=shutil.ignore_patterns(".git"))
+    return target
+
+
 # ---------------------------------------------------------------- 主流程
 
-def process_url(url: str, cache: dict, translate) -> dict:
+def process_url(url: str, cache: dict, translate, copy_dest: Path | None = None,
+                used_names: set | None = None) -> dict:
     info = parse_url(url)
     log(f"[{info['name_hint']}] 拉取 {info['repo_url']}"
         f" (分支={info['branch']}, 子路径={info['subpath'] or '/'})")
@@ -290,6 +335,11 @@ def process_url(url: str, cache: dict, translate) -> dict:
             log(f"  提取到 description({len(description)} 字符)")
         description_zh, _ = translate_with_cache(cache, translate, description)
 
+        if copy_dest is not None:
+            target = copy_skill_dir(skill_file.parent, copy_dest,
+                                    info["name_hint"], used_names)
+            log(f"  已拷贝原始 Skill 到 {target.relative_to(ROOT)}")
+
         file_rel = skill_file.relative_to(root).as_posix()
         item = {
             "name": info["name_hint"],
@@ -303,7 +353,7 @@ def process_url(url: str, cache: dict, translate) -> dict:
         log(f"  成功: name={item['name']}, commit={commit[:7]}, file={file_rel}")
         return item
     finally:
-        shutil.rmtree(tmp, ignore_errors=True)
+        force_rmtree(tmp)
 
 
 def copy_site() -> None:
@@ -331,10 +381,37 @@ def main() -> int:
     translate = build_translator()
     items, failures = [], []
 
+    # 原始 Skill 拷贝目录:config.json 的 "skills_dir" 字段或环境变量 SKILLS_DIR,
+    # 默认根目录下 skills/。显式设为 null / "" / false 可关闭拷贝。
+    if "skills_dir" in config:
+        raw_dir = config["skills_dir"]
+    else:
+        raw_dir = os.environ.get("SKILLS_DIR", "skills")
+    copy_dest = None
+    used_names = None
+    if raw_dir not in (None, "", False):
+        copy_dest = Path(str(raw_dir))
+        if not copy_dest.is_absolute():
+            copy_dest = ROOT / copy_dest
+        try:
+            copy_dest = copy_dest.resolve()
+        except OSError:
+            pass
+        # 路径防护:禁止指向项目根/祖先或关键目录,避免误清空项目
+        if copy_dest == ROOT or copy_dest in ROOT.parents \
+                or copy_dest in (ROOT / "public", ROOT / "site", ROOT / "scripts"):
+            log(f"[ERROR] skills_dir 路径不合法(会清空项目关键目录): {raw_dir}")
+            return 1
+        if copy_dest.exists():
+            log(f"清空拷贝目录 {copy_dest}(该目录由脚本完全管理)")
+            force_rmtree(copy_dest)
+        copy_dest.mkdir(parents=True, exist_ok=True)
+        used_names = set()
+
     for i, url in enumerate(urls, 1):
         log(f"[{i}/{len(urls)}] 处理: {url}")
         try:
-            items.append(process_url(url, cache, translate))
+            items.append(process_url(url, cache, translate, copy_dest, used_names))
         except Exception as e:
             failures.append((url, str(e)))
             log(f"[ERROR] 跳过该条目: {e}")

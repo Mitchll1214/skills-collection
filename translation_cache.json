@@ -1,5 +1,8 @@
 {
   "b520f65c3d4cbb8d47a8bd572a9cce08": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
   "bc5986ebbf4dde661f229fd527ad82f4": "市场",
-  "48901686d3680e8a48a219f22d737874": "您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。"
+  "48901686d3680e8a48a219f22d737874": "您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。",
+  "58e1e95133b6d401c1bef8b6aa0cf8c7": "[zh] A skill for generating test fixtures in JavaScript projects.",
+  "f534726b1155cad56633b682774aa8da": "[zh] Collection of Dart and Flutter coding patterns to speed up mobile development.",
+  "7d552c6507540913f4a06f61b1113604": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。"
 }
