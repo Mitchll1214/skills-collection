@@ -1,0 +1,29 @@
+[
+  {
+    "name": "dart-flutter-patterns",
+    "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
+    "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
+    "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
+    "commit": "0c1d7be9a750627fb2a6534c78a998cc46d03f9c",
+    "file": "SKILL.md",
+    "branch": "main"
+  },
+  {
+    "name": "skills",
+    "description": "marketplace",
+    "description_zh": "市场",
+    "source_url": "https://github.com/anthropics/skills",
+    "commit": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
+    "file": ".claude-plugin/marketplace.json",
+    "branch": "main"
+  },
+  {
+    "name": "skills",
+    "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+    "description_zh": "您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。",
+    "source_url": "https://github.com/obra/superpowers/tree/main/skills",
+    "commit": "44c9b2d6e889982ac18c27d05a19fefe335194e1",
+    "file": "brainstorming/SKILL.md",
+    "branch": "main"
+  }
+]

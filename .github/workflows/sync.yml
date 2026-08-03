@@ -1,0 +1,39 @@
+name: sync
+
+on:
+  push:
+    branches: [main]
+    paths: [config.json]
+  schedule:
+    # 每日凌晨 3 点(UTC)定时同步
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 运行同步脚本
+        run: python scripts/sync.py
+
+      - name: 提交变更
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: sync skills (auto)"
+          file_pattern: public/ translation_cache.json
+          commit_user_name: skills-collection bot
+          commit_user_email: actions@github.com

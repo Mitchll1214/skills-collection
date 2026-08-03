@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills Collection · AI Skill 收藏清单</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>🧰 Skills Collection</h1>
+      <p class="subtitle">个人收藏的 AI Skill 清单 — 由 config.json 自动同步生成</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toolbar">
+      <input id="search" type="search" class="search" placeholder="🔍 搜索名称 / 描述 / 中文描述…" autocomplete="off">
+      <span id="count" class="count"></span>
+    </div>
+
+    <div id="banner" class="banner" hidden></div>
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty" hidden>
+      <p>😕 没有匹配的 Skill</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>数据来源: <code>public/skills.json</code> · 由 <code>scripts/sync.py</code> 自动生成</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

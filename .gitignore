@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 本地测试产物(开发用)
+.test-*
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
