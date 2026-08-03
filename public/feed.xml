@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0"><channel><title>Skills Collection</title><link>https://github.com/Mitchll1214/skills-collection</link><description>个人收藏的 AI Skill 清单,自动同步更新</description><generator>skills-collection/sync.py</generator><item><title>dart-flutter-patterns</title><link>https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns</link><guid isPermaLink="false">https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns</guid><description>本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。
+
+中文: 生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。
+标签: dart, flutter, 移动开发, 架构模式</description></item><item><title>frontend-design</title><link>https://github.com/anthropics/skills/tree/main/skills/frontend-design</link><guid isPermaLink="false">https://github.com/anthropics/skills/tree/main/skills/frontend-design</guid><description>Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
+
+中文: 在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。
+标签: frontend, ui设计, 视觉设计, 设计规范</description></item><item><title>skills</title><link>https://github.com/obra/superpowers/tree/main/skills</link><guid isPermaLink="false">https://github.com/obra/superpowers/tree/main/skills</guid><description>You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+
+中文: 您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。
+标签: 需求探索, 创意规划, 头脑风暴, 工作流</description></item></channel></rss>

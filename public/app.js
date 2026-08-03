@@ -7,6 +7,7 @@
   var countEl = document.getElementById("count");
   var emptyEl = document.getElementById("empty");
   var banner = document.getElementById("banner");
+  var filterBar = document.getElementById("tag-filters");
 
   var skills = [];
 
@@ -103,6 +104,27 @@
     return card;
   }
 
+  function buildFilters(list) {
+    var counts = {};
+    list.forEach(function (s) {
+      (s.tags || []).forEach(function (t) { counts[t] = (counts[t] || 0) + 1; });
+    });
+    filterBar.innerHTML = "";
+    Object.keys(counts).sort().forEach(function (t) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "tag-filter";
+      b.dataset.tag = t;
+      b.textContent = t + " · " + counts[t];
+      b.title = "按标签筛选";
+      b.addEventListener("click", function () {
+        search.value = (search.value === t) ? "" : t;
+        render();
+      });
+      filterBar.appendChild(b);
+    });
+  }
+
   function render() {
     var q = (search.value || "").trim().toLowerCase();
     var filtered = skills.filter(function (s) { return matches(s, q); });
@@ -112,6 +134,10 @@
 
     countEl.textContent = filtered.length + " / " + skills.length;
     emptyEl.hidden = filtered.length !== 0;
+
+    filterBar.querySelectorAll(".tag-filter").forEach(function (b) {
+      b.classList.toggle("active", b.dataset.tag === q);
+    });
   }
 
   async function init() {
@@ -127,6 +153,7 @@
         " 在项目目录执行 `python -m http.server` 后访问 http://localhost:8000/public/"
       );
     }
+    buildFilters(skills);
     render();
   }
 

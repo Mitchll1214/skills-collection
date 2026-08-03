@@ -115,6 +115,37 @@ body {
   white-space: nowrap;
 }
 
+.tag-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: -8px 0 20px;
+}
+
+.tag-filters:empty { display: none; }
+
+.tag-filter {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.tag-filter:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tag-filter.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 .banner {
   background: #ffe9e9;
   color: #a33;

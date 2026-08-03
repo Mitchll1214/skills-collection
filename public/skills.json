@@ -6,7 +6,13 @@
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
     "commit": "0c1d7be9a750627fb2a6534c78a998cc46d03f9c",
     "file": "SKILL.md",
-    "branch": "main"
+    "branch": "main",
+    "tags": [
+      "dart",
+      "flutter",
+      "移动开发",
+      "架构模式"
+    ]
   },
   {
     "name": "frontend-design",
@@ -15,7 +21,13 @@
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
     "commit": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
     "file": "SKILL.md",
-    "branch": "main"
+    "branch": "main",
+    "tags": [
+      "frontend",
+      "ui设计",
+      "视觉设计",
+      "设计规范"
+    ]
   },
   {
     "name": "skills",
@@ -24,6 +36,12 @@
     "source_url": "https://github.com/obra/superpowers/tree/main/skills",
     "commit": "44c9b2d6e889982ac18c27d05a19fefe335194e1",
     "file": "brainstorming/SKILL.md",
-    "branch": "main"
+    "branch": "main",
+    "tags": [
+      "需求探索",
+      "创意规划",
+      "头脑风暴",
+      "工作流"
+    ]
   }
 ]
