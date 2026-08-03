@@ -93,5 +93,21 @@
       "营销",
       "Craft"
     ]
+  },
+  {
+    "name": "apple-design",
+    "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
+    "description_zh": "Apple 的界面设计和流畅的物理运动方法已转化为网络。在构建或审查手势驱动的 UI、弹簧动画、拖动/滑动/纸张交互、动量和可中断过渡、半透明材质和深度、排版（光学尺寸、跟踪、引导）、简化运动或 Apple 风格界面背后的设计基础（反馈、空间一致性、约束）时使用。",
+    "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
+    "commit": "da80201b64de7d608a6dc5f723797ce6c65b692b",
+    "file": "SKILL.md",
+    "branch": "main",
+    "tags": [
+      "前端开发",
+      "界面设计",
+      "移动开发",
+      "翻译",
+      "Apple"
+    ]
   }
 ]
