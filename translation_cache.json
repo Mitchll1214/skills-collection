@@ -4,5 +4,7 @@
   "48901686d3680e8a48a219f22d737874": "您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。",
   "58e1e95133b6d401c1bef8b6aa0cf8c7": "[zh] A skill for generating test fixtures in JavaScript projects.",
   "f534726b1155cad56633b682774aa8da": "[zh] Collection of Dart and Flutter coding patterns to speed up mobile development.",
-  "7d552c6507540913f4a06f61b1113604": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。"
+  "7d552c6507540913f4a06f61b1113604": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
+  "a0c4702071c72c6d1d8cfc7cbccd2e4f": "设计工程原理，使界面感觉更加优雅。在构建 UI 组件、检查前端代码、实现动画、悬停状态、阴影、边框、微交互、进入/退出动画、选择或检查图标或任何视觉细节工作时使用。触发 UI 抛光、设计细节、“让它感觉更好”、“感觉不太好”、交错动画、边框半径、光学对齐、图像轮廓、框阴影、图标、图标描边粗细、图标状态、运动限制。",
+  "8c651cc501ad0b475aaff3670d3a5b71": "适用于网络和移动设备的 UI/UX 设计智能。可搜索的本地数据库，包含 84 种样式、192 种调色板、74 种字体配对、192 种产品类型、98 种 UX 指南、104 个图标条目、16 个 GSAP 运动预设以及 22 个堆栈中的 25 种图表类型（React、Next.js、Vue、Nuxt、Svelte、Astro、SwiftUI、React Native、Flutter、Tailwind、shadcn/ui、Jetpack Compose、 Angular、Laravel、JavaFX、WPF、WinUI、Avalonia、Uno Platform、UWP、Three.js 和 HTML/CSS）。在设计、构建或审查 UI 时使用：页面、组件、配色方案、版式、布局、可访问性、动画或数据可视化。"
 }
