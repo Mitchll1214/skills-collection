@@ -25,7 +25,6 @@ import json
 import os
 import re
 import shutil
-import stat
 import subprocess
 import sys
 import tempfile
@@ -273,27 +272,33 @@ def translate_with_cache(cache: dict, translate, text: str) -> tuple[str, bool]:
 # ---------------------------------------------------------------- 原始 Skill 拷贝
 
 def force_rmtree(path: Path) -> None:
-    """删除目录,先清除只读属性(Windows 下 git 的 pack 文件为只读)。"""
+    """递归删除目录,先授予全权限后逐个删除(兼容 Windows 只读文件与 Linux 特殊权限)。
+
+    不使用 shutil.rmtree 的 onerror/onexc 回调:Python 3.12 在 POSIX 上用
+    _rmtree_safe_fd 内部调用 os.open 打开目录,回调里重试 func(path) 会因缺少
+    flags 参数抛 TypeError;这里改为自写自底向上删除,失败条目尽力忽略。
+    """
     if not path.exists():
         return
-    for root, dirs, files in os.walk(path):
-        for name in dirs + files:
+    for root, dirs, files in os.walk(path, topdown=False):
+        for name in files + dirs:
+            p = os.path.join(root, name)
             try:
-                os.chmod(os.path.join(root, name), stat.S_IWRITE)
+                os.chmod(p, 0o777)
             except OSError:
                 pass
-
-    def _onerror(func, p, exc_info):
-        try:
-            os.chmod(p, stat.S_IWRITE)
-            func(p)
-        except OSError:
-            pass
-
-    if sys.version_info >= (3, 12):
-        shutil.rmtree(path, onexc=_onerror)
-    else:
-        shutil.rmtree(path, onerror=_onerror)
+            try:
+                if os.path.isdir(p):
+                    os.rmdir(p)
+                else:
+                    os.unlink(p)
+            except OSError:
+                pass
+    try:
+        os.chmod(path, 0o777)
+        path.rmdir()
+    except OSError:
+        pass
 
 
 def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
@@ -305,7 +310,8 @@ def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
         target = dest / candidate
         i += 1
     used_names.add(candidate)
-    shutil.copytree(src, target, ignore=shutil.ignore_patterns(".git"))
+    shutil.copytree(src, target, dirs_exist_ok=True,
+                    ignore=shutil.ignore_patterns(".git"))
     return target
 
 
