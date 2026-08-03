@@ -18,6 +18,7 @@
   function matches(s, q) {
     if (!q) return true;
     var hay = [s.name, s.description, s.description_zh, s.source_url, s.file]
+      .concat(s.tags || [])
       .filter(Boolean)
       .join("\n")
       .toLowerCase();
@@ -48,6 +49,24 @@
       zh.appendChild(tag);
       zh.appendChild(document.createTextNode(s.description_zh));
       card.appendChild(zh);
+    }
+
+    if (s.tags && s.tags.length) {
+      var tags = document.createElement("div");
+      tags.className = "tags";
+      s.tags.forEach(function (t) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tag";
+        b.textContent = t;
+        b.title = "点击筛选此标签";
+        b.addEventListener("click", function () {
+          search.value = t;
+          render();
+        });
+        tags.appendChild(b);
+      });
+      card.appendChild(tags);
     }
 
     var footer = document.createElement("div");

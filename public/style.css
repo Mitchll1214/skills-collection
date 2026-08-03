@@ -42,6 +42,37 @@ body {
 
 .subtitle { margin: 0; opacity: 0.92; font-size: 0.95rem; }
 
+.subscribe {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.rss-btn, .gh-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.12s, opacity 0.12s;
+}
+
+.rss-btn {
+  background: #fff;
+  color: #e8590c;
+}
+
+.gh-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.rss-btn:hover, .gh-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
 /* ---------- 主体 ---------- */
 .container {
   max-width: 1080px;
@@ -153,6 +184,29 @@ body {
   padding: 1px 8px;
   margin-bottom: 4px;
   font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.tag:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .card-footer {

@@ -79,6 +79,34 @@ skills-collection/
 
 查找 Skill 文件的优先级:目录下的 `SKILL.md` / `skill.yaml` / `skill.yml` / `skill.json`(大小写不敏感)→ 若无,则取第一个支持扩展名(`.md/.yaml/.yml/.json/.txt`)的文件。
 
+### 标签(`tags`)
+
+每个 Skill 会生成 1–4 个标签,写入 `skills.json` 的 `tags` 字段,前端以徽章展示(点击标签可筛选):
+
+1. **优先**读取 Skill 文件 frontmatter 的 `tags` 字段(支持数组或逗号分隔字符串);
+2. 若没有,则按内置关键词库从 `description` 自动匹配(如 `ai` / `coding` / `frontend` / `design` / `python` / `dart` / `test` / `data` / `writing` / `translate` / `mobile` 等);
+3. 都无命中则为空数组。
+
+自定义标签最直接的方式是在你的 Skill 文件 frontmatter 里加:
+
+```yaml
+---
+name: my-skill
+description: xxx
+tags: [frontend, react]
+---
+```
+
+### 订阅地址(RSS)
+
+脚本会生成 `public/feed.xml`(RSS 2.0),首页顶部有「📡 订阅 RSS」按钮。部署到 Cloudflare Pages 后,完整订阅地址为:
+
+```
+https://<你的-pages-域名>/feed.xml
+```
+
+（本地预览时为 `http://localhost:8000/public/feed.xml`;也可直接订阅仓库更新:`https://github.com/Mitchll1214/skills-collection/commits/main.atom`）
+
 ---
 
 ## 本地运行

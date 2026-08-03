@@ -309,6 +309,50 @@ def copy_skill_dir(src: Path, dest: Path, name: str, used_names: set) -> Path:
     return target
 
 
+# ---------------------------------------------------------------- 标签提取
+
+# 关键词标签规则:标签 -> 匹配关键词(description 小写包含即命中)
+TAG_KEYWORDS = {
+    "ai": ["claude", "anthropic", "llm", "gpt", "openai", "agent", "ai "],
+    "coding": ["code", "coding", "programming", "代码", "编码", "开发"],
+    "frontend": ["frontend", "front-end", "web", "html", "css", "javascript",
+                  "typescript", "react", "vue", "ui"],
+    "design": ["design", "界面", "设计", "ux"],
+    "backend": ["backend", "server", "api", "database", "数据库"],
+    "python": ["python", "django", "flask"],
+    "dart": ["dart", "flutter"],
+    "test": ["test", "testing", "测试", "qa"],
+    "git": ["git", "github", "repo"],
+    "data": ["data", "sql", "analytics", "数据", "分析"],
+    "writing": ["writing", "write", "写作", "文案", "内容"],
+    "translate": ["translat", "翻译", "language", "i18n"],
+    "research": ["research", "search", "研究", "搜索"],
+    "automation": ["automation", "workflow", "自动", "工作流"],
+    "mobile": ["mobile", "android", "ios", "移动"],
+}
+MAX_TAGS = 4
+
+
+def extract_tags(skill_file: Path, description: str) -> list[str]:
+    """为 Skill 打标签:优先读 frontmatter 的 tags 字段,否则按关键词库从 description 提取。"""
+    data = parse_skill_file(skill_file)
+    if isinstance(data, dict):
+        raw = data.get("tags") or data.get("Tags")
+        if isinstance(raw, list):
+            tags = [str(t).strip() for t in raw if str(t).strip()]
+            if tags:
+                return tags[:MAX_TAGS]
+        if isinstance(raw, str):
+            tags = [t.strip() for t in raw.replace("，", ",").split(",") if t.strip()]
+            if tags:
+                return tags[:MAX_TAGS]
+    if not description:
+        return []
+    low = description.lower()
+    tags = [tag for tag, kws in TAG_KEYWORDS.items() if any(k in low for k in kws)]
+    return tags[:MAX_TAGS]
+
+
 # ---------------------------------------------------------------- 主流程
 
 def process_url(url: str, cache: dict, translate, copy_dest: Path | None = None,
@@ -334,6 +378,7 @@ def process_url(url: str, cache: dict, translate, copy_dest: Path | None = None,
         else:
             log(f"  提取到 description({len(description)} 字符)")
         description_zh, _ = translate_with_cache(cache, translate, description)
+        tags = extract_tags(skill_file, description)
 
         if copy_dest is not None:
             target = copy_skill_dir(skill_file.parent, copy_dest,
@@ -349,11 +394,38 @@ def process_url(url: str, cache: dict, translate, copy_dest: Path | None = None,
             "commit": commit,
             "file": file_rel,
             "branch": info["branch"],
+            "tags": tags,
         }
         log(f"  成功: name={item['name']}, commit={commit[:7]}, file={file_rel}")
         return item
     finally:
         force_rmtree(tmp)
+
+
+def write_feed(items: list[dict]) -> None:
+    """生成 RSS 2.0 订阅源 public/feed.xml(首页订阅按钮指向它)。"""
+    import xml.etree.ElementTree as ET
+
+    rss = ET.Element("rss", {"version": "2.0"})
+    channel = ET.SubElement(rss, "channel")
+    ET.SubElement(channel, "title").text = "Skills Collection"
+    ET.SubElement(channel, "link").text = "https://github.com/Mitchll1214/skills-collection"
+    ET.SubElement(channel, "description").text = "个人收藏的 AI Skill 清单,自动同步更新"
+    ET.SubElement(channel, "generator").text = "skills-collection/sync.py"
+    for s in items:
+        item = ET.SubElement(channel, "item")
+        ET.SubElement(item, "title").text = s.get("name") or "(未命名)"
+        ET.SubElement(item, "link").text = s.get("source_url") or ""
+        guid = s.get("source_url") or s.get("commit") or ""
+        ET.SubElement(item, "guid", {"isPermaLink": "false"}).text = guid
+        desc = s.get("description") or ""
+        if s.get("description_zh"):
+            desc += f"\n\n中文: {s['description_zh']}"
+        if s.get("tags"):
+            desc += f"\n标签: {', '.join(s['tags'])}"
+        ET.SubElement(item, "description").text = desc
+    ET.ElementTree(rss).write(PUBLIC_DIR / "feed.xml", encoding="utf-8", xml_declaration=True)
+    log(f"已生成订阅源 {PUBLIC_DIR / 'feed.xml'}")
 
 
 def copy_site() -> None:
@@ -421,6 +493,7 @@ def main() -> int:
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
     SKILLS_JSON.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
     log(f"已写入 {SKILLS_JSON} ({len(items)} 条)")
+    write_feed(items)
     copy_site()
     log(f"已将 site/ 静态文件复制到 {PUBLIC_DIR}")
 
