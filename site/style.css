@@ -259,11 +259,10 @@ body {
 }
 
 /* ---------- 卡片网格 ---------- */
-/* 自适应列数:宽屏更多列,列宽随容器伸缩;移动端单列 */
+/* 瀑布流:多列布局,卡片高度由内容决定、紧凑拼凑(不等高,无底部大空白) */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  columns: 280px;
+  column-gap: 16px;
 }
 
 /* 进入动画:交错上浮(仅初始/重建时,backwards 不覆盖 hover) */
@@ -276,6 +275,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  break-inside: avoid;      /* 卡片不被拆到两列 */
+  margin-bottom: 16px;      /* 列内间距(columns 布局用 margin 而非 gap) */
   transition: transform var(--dur) var(--ease-out),
               box-shadow var(--dur) var(--ease-out),
               border-color var(--dur) var(--ease-out);
@@ -451,7 +452,7 @@ body {
 @media (max-width: 640px) {
   .hero { padding: 40px 16px 36px; }
   .hero h1 { font-size: 1.55rem; }
-  .grid { grid-template-columns: 1fr; }
+  .grid { columns: 1; }
   .search { min-width: 0; }
 }
 
