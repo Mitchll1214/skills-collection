@@ -30,10 +30,16 @@ jobs:
       - name: 运行同步脚本
         run: python scripts/sync.py
 
-      - name: 提交变更
-        uses: stefanzweifel/git-auto-commit-action@v6
-        with:
-          commit_message: "chore: sync skills (auto)"
-          file_pattern: public/ translation_cache.json
-          commit_user_name: skills-collection bot
-          commit_user_email: actions@github.com
+      - name: 提交并推送变更
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "skills-collection bot"
+          git config user.email "actions@github.com"
+          git add public/ skills/ translation_cache.json
+          if git diff --cached --quiet; then
+            echo "无变更,跳过提交"
+          else
+            git commit -m "chore: sync skills (auto)"
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+          fi

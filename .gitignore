@@ -7,8 +7,7 @@ venv/
 # 本地测试产物(开发用)
 .test-*
 
-# 由 sync.py 生成的原始 Skill 拷贝目录(脚本完全管理)
-skills/
+# 测试用拷贝目录(开发用)
 skills-test/
 
 # 编辑器
