@@ -4,7 +4,7 @@
     "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
     "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
-    "commit": "ff15079b9f9852c385ac3a506f8ec3a26be4f563",
+    "commit": "f1fec0e53934737d3b3b8388b0fd1651e8b62f4f",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -115,7 +115,7 @@
     "description": "Anti-AI-slop design skill for greenfield pages, audits, redesigns, and design extraction from URLs or screenshots. Use when the user asks to build a new app or landing page, wants to redesign something, invokes Hallmark by name, or uses audit/redesign/study.",
     "description_zh": "针对新建页面、审核、重新设计以及从 URL 或屏幕截图中提取设计的反 AI 设计技能。当用户要求构建新应用程序或登录页面、想要重新设计某些内容、按名称调用 Hallmark 或使用审核/重新设计/研究时使用。",
     "source_url": "https://github.com/Nutlope/hallmark/tree/main/skills/hallmark",
-    "commit": "aeb42fb354ff4efa36ab475773a082315a3af2ce",
+    "commit": "0a0f706bc0289fef76a07fb854a6a5b031c57901",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
