@@ -126,5 +126,22 @@
       "Anti",
       "URLs"
     ]
+  },
+  {
+    "name": "taste-skill",
+    "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.",
+    "description_zh": "针对登陆页面、作品集和重新设计的防倾斜前端技能。代理阅读简报，推断正确的设计方向，并发布看起来不模板化的界面。适用时的真实设计系统，重新设计时首先审核，严格的飞行前检查。",
+    "source_url": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill",
+    "commit": "e988add20dab0fa97d7a76781c48961c8184288e",
+    "file": "SKILL.md",
+    "branch": "main",
+    "tags": [
+      "人工智能",
+      "前端开发",
+      "界面设计",
+      "移动开发",
+      "Anti",
+      "Real"
+    ]
   }
 ]
