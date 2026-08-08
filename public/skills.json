@@ -4,7 +4,7 @@
     "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
     "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
-    "commit": "9aac8585ab887d9c51252730240b25d9cca180da",
+    "commit": "59a99d669f5466d99d5be8b6fce8c5f2677766d0",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -19,7 +19,7 @@
     "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_zh": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-    "commit": "b29e7cf65e5cb78a5ac33d582270551bc74a14eb",
+    "commit": "f17010c9bb483898c1d9c9f42dde2b3a98889434",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
