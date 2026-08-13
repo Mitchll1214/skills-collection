@@ -4,7 +4,7 @@
     "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
     "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
-    "commit": "ff2280a3186dfdad6407391da3f92b021d526908",
+    "commit": "eb4970265169fec82371c92f615e2e133d875e27",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -34,7 +34,7 @@
     "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
     "description_zh": "您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。",
     "source_url": "https://github.com/obra/superpowers/tree/main/skills",
-    "commit": "44c9b2d6e889982ac18c27d05a19fefe335194e1",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
     "file": "brainstorming/SKILL.md",
     "branch": "main",
     "tags": [
@@ -49,7 +49,7 @@
     "description": "Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, micro-interactions, enter/exit animations, choosing or reviewing icons, or any visual detail work. Triggers on UI polish, design details, \"make it feel better\", \"feels off\", stagger animations, border radius, optical alignment, image outlines, box shadows, icons, icon stroke weight, icon states, motion restraint.",
     "description_zh": "设计工程原理，使界面感觉更加优雅。在构建 UI 组件、检查前端代码、实现动画、悬停状态、阴影、边框、微交互、进入/退出动画、选择或检查图标或任何视觉细节工作时使用。触发 UI 抛光、设计细节、“让它感觉更好”、“感觉不太好”、交错动画、边框半径、光学对齐、图像轮廓、框阴影、图标、图标描边粗细、图标状态、运动限制。",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "d01493b0a7b976a74bfcedc80c783d60c7995910",
+    "commit": "c25a8437afc6fecf277158f7c6e2f9aa45f4993d",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web and mobile. Searchable local database with 84 styles, 192 color palettes, 74 font pairings, 192 product types, 98 UX guidelines, 104 icon entries, 16 GSAP motion presets, and 25 chart types across 22 stacks (React, Next.js, Vue, Nuxt, Svelte, Astro, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, JavaFX, WPF, WinUI, Avalonia, Uno Platform, UWP, Three.js, and HTML/CSS). Use when designing, building, or reviewing UI: pages, components, color schemes, typography, layout, accessibility, animation, or data visualization.",
     "description_zh": "适用于网络和移动设备的 UI/UX 设计智能。可搜索的本地数据库，包含 84 种样式、192 种调色板、74 种字体配对、192 种产品类型、98 种 UX 指南、104 个图标条目、16 个 GSAP 运动预设以及 22 个堆栈中的 25 种图表类型（React、Next.js、Vue、Nuxt、Svelte、Astro、SwiftUI、React Native、Flutter、Tailwind、shadcn/ui、Jetpack Compose、 Angular、Laravel、JavaFX、WPF、WinUI、Avalonia、Uno Platform、UWP、Three.js 和 HTML/CSS）。在设计、构建或审查 UI 时使用：页面、组件、配色方案、版式、布局、可访问性、动画或数据可视化。",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "abb7f2fd5a083fa1ff55c326a963ff0d95c33f99",
+    "commit": "97eb2a20032f0833e3d317162208a60385b0f96e",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
