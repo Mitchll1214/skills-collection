@@ -19,7 +19,7 @@
     "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_zh": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-    "commit": "f6656c1256d5a8adfa37db9110046ef20bac644c",
+    "commit": "f379e5ad66e2febc1616cf8d6284666fecbe514e",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -132,7 +132,7 @@
     "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.",
     "description_zh": "针对登陆页面、作品集和重新设计的防倾斜前端技能。代理阅读简报，推断正确的设计方向，并发布看起来不模板化的界面。适用时的真实设计系统，重新设计时首先审核，严格的飞行前检查。",
     "source_url": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill",
-    "commit": "e988add20dab0fa97d7a76781c48961c8184288e",
+    "commit": "dfb6f9f9e93a39f673b1827c0889cc28326d1800",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
