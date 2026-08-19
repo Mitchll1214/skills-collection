@@ -19,7 +19,7 @@
     "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_zh": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-    "commit": "f379e5ad66e2febc1616cf8d6284666fecbe514e",
+    "commit": "0a64e398ec6bb34a494f0c347e8ccae53a862f8e",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 79 searchable styles (50 active), 192 product palettes and reasoning profiles, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "description_zh": "适用于 Web、移动设备和桌面的 UI/UX 设计智能。在设计、构建、审查或修复界面时应使用此技能，包括页面、组件、设计系统、可访问性、交互、响应式布局、排版、颜色、图表和特定于堆栈的 UI 实现。可搜索的本地数据：79 个可搜索样式（50 个活动）、192 个产品调色板和推理配置文件、74 个字体配对、119 个 UX 指南、105 个图标、17 个 GSAP 预设、25 种图表类型和 22 个堆栈。",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "a38d04c3d5c298c851dbe5e6ee1965ee3de42cb5",
+    "commit": "8a1a6d857332da32252d77365da90c3f6293b47b",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -99,7 +99,7 @@
     "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
     "description_zh": "Apple 的界面设计和流畅的物理运动方法已转化为网络。在构建或审查手势驱动的 UI、弹簧动画、拖动/滑动/纸张交互、动量和可中断过渡、半透明材质和深度、排版（光学尺寸、跟踪、引导）、简化运动或 Apple 风格界面背后的设计基础（反馈、空间一致性、约束）时使用。",
     "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
-    "commit": "78761e1b57f97dce65b983d640c70a68f39e8163",
+    "commit": "e879241fab3cdb22e8d95587cdbf40b57a88d7da",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
