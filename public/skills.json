@@ -4,7 +4,7 @@
     "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
     "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
-    "commit": "06c5e118c4d3e6c3b7f9445f973a2194c82de193",
+    "commit": "d8409a4b0813771235555e32e3d8046a73988bfa",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -46,10 +46,10 @@
   },
   {
     "name": "better-ui",
-    "description": "Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, micro-interactions, enter/exit animations, choosing or reviewing icons, or any visual detail work. Triggers on UI polish, design details, \"make it feel better\", \"feels off\", stagger animations, theme switch transitions, border radius, optical alignment, image outlines, box shadows, icons, icon stroke weight, icon states, motion restraint.",
-    "description_zh": "设计工程原理，使界面感觉更加优雅。在构建 UI 组件、检查前端代码、实现动画、悬停状态、阴影、边框、微交互、进入/退出动画、选择或检查图标或任何视觉细节工作时使用。触发 UI 抛光、设计细节、“让它感觉更好”、“感觉不太好”、交错动画、主题切换过渡、边框半径、光学对齐、图像轮廓、框阴影、图标、图标笔划粗细、图标状态、运动限制。",
+    "description": "Design engineering principles for making interfaces feel polished. Use when building UI components, implementing animations or hover states, or doing any visual detail work. Triggers on UI polish, \"feels off\", stagger animations, enter animations, theme switch transitions, border radius, optical alignment, image outlines, box shadows, icons, icon stroke weight, motion restraint.",
+    "description_zh": "设计工程原理，使界面感觉更加优雅。在构建 UI 组件、实现动画或悬停状态或执行任何视觉细节工作时使用。触发 UI 抛光、“感觉不太好”、交错动画、输入动画、主题切换过渡、边框半径、光学对齐、图像轮廓、框阴影、图标、图标描边粗细、运动限制。",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "ba35986bcf433fdca78ea571b0a3dc329cea89ba",
+    "commit": "2834718f1fc282fc56fb477c1eb0ba54055222b4",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
