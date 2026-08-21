@@ -49,7 +49,7 @@
     "description": "Design engineering principles for making interfaces feel polished. Use when building UI components, implementing animations or hover states, or doing any visual detail work. Triggers on UI polish, \"feels off\", stagger animations, enter animations, theme switch transitions, border radius, optical alignment, image outlines, box shadows, icons, icon stroke weight, motion restraint.",
     "description_zh": "设计工程原理，使界面感觉更加优雅。在构建 UI 组件、实现动画或悬停状态或执行任何视觉细节工作时使用。触发 UI 抛光、“感觉不太好”、交错动画、输入动画、主题切换过渡、边框半径、光学对齐、图像轮廓、框阴影、图标、图标描边粗细、运动限制。",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "2834718f1fc282fc56fb477c1eb0ba54055222b4",
+    "commit": "6c43b20ce00f720eed854591abe480127629c191",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 79 searchable styles (50 active), 192 product palettes and reasoning profiles, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "description_zh": "适用于 Web、移动设备和桌面的 UI/UX 设计智能。在设计、构建、审查或修复界面时应使用此技能，包括页面、组件、设计系统、可访问性、交互、响应式布局、排版、颜色、图表和特定于堆栈的 UI 实现。可搜索的本地数据：79 个可搜索样式（50 个活动）、192 个产品调色板和推理配置文件、74 个字体配对、119 个 UX 指南、105 个图标、17 个 GSAP 预设、25 种图表类型和 22 个堆栈。",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "8a1a6d857332da32252d77365da90c3f6293b47b",
+    "commit": "bc826e2267a36d98a2dcf5231e16c30ff546770f",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
