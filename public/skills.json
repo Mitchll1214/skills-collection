@@ -19,7 +19,7 @@
     "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_zh": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-    "commit": "0a64e398ec6bb34a494f0c347e8ccae53a862f8e",
+    "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -99,7 +99,7 @@
     "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
     "description_zh": "Apple 的界面设计和流畅的物理运动方法已转化为网络。在构建或审查手势驱动的 UI、弹簧动画、拖动/滑动/纸张交互、动量和可中断过渡、半透明材质和深度、排版（光学尺寸、跟踪、引导）、简化运动或 Apple 风格界面背后的设计基础（反馈、空间一致性、约束）时使用。",
     "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
-    "commit": "e879241fab3cdb22e8d95587cdbf40b57a88d7da",
+    "commit": "d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -132,7 +132,7 @@
     "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.",
     "description_zh": "针对登陆页面、作品集和重新设计的防倾斜前端技能。代理阅读简报，推断正确的设计方向，并发布看起来不模板化的界面。适用时的真实设计系统，重新设计时首先审核，严格的飞行前检查。",
     "source_url": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill",
-    "commit": "dfb6f9f9e93a39f673b1827c0889cc28326d1800",
+    "commit": "843c8dd4d18ccff0d5a9cd4b0b71d7dbf7278293",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
