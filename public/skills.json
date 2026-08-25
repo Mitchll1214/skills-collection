@@ -49,7 +49,7 @@
     "description": "Design engineering principles for making interfaces feel polished. Use when building UI components, implementing animations or hover states, or doing any visual detail work. Triggers on UI polish, \"feels off\", stagger animations, enter animations, theme switch transitions, border radius, optical alignment, image outlines, box shadows, icons, icon stroke weight, motion restraint.",
     "description_zh": "设计工程原理，使界面感觉更加优雅。在构建 UI 组件、实现动画或悬停状态或执行任何视觉细节工作时使用。触发 UI 抛光、“感觉不太好”、交错动画、输入动画、主题切换过渡、边框半径、光学对齐、图像轮廓、框阴影、图标、图标描边粗细、运动限制。",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "6c43b20ce00f720eed854591abe480127629c191",
+    "commit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 79 searchable styles (50 active), 192 product palettes and reasoning profiles, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "description_zh": "适用于 Web、移动设备和桌面的 UI/UX 设计智能。在设计、构建、审查或修复界面时应使用此技能，包括页面、组件、设计系统、可访问性、交互、响应式布局、排版、颜色、图表和特定于堆栈的 UI 实现。可搜索的本地数据：79 个可搜索样式（50 个活动）、192 个产品调色板和推理配置文件、74 个字体配对、119 个 UX 指南、105 个图标、17 个 GSAP 预设、25 种图表类型和 22 个堆栈。",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "bc826e2267a36d98a2dcf5231e16c30ff546770f",
+    "commit": "c87cdc226f85b28040c6f15c1d29b5684fd32121",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -132,7 +132,7 @@
     "description": "Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.",
     "description_zh": "针对登陆页面、作品集和重新设计的防倾斜前端技能。代理阅读简报，推断正确的设计方向，并发布看起来不模板化的界面。适用时的真实设计系统，重新设计时首先审核，严格的飞行前检查。",
     "source_url": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill",
-    "commit": "72e299530e2eb31ed8da06181bc19f6c18a00821",
+    "commit": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
