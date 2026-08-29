@@ -4,7 +4,7 @@
     "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
     "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
-    "commit": "5eddf1a3ffd311423be2d4ba7d26f7209c91b033",
+    "commit": "656d4b5746413e4e78f9c62cb34d686515931f4f",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
