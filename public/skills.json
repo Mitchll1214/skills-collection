@@ -4,7 +4,7 @@
     "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
     "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
-    "commit": "656d4b5746413e4e78f9c62cb34d686515931f4f",
+    "commit": "d8e6a51755c6971a65eef73419076d449df0f490",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -46,10 +46,10 @@
   },
   {
     "name": "better-ui",
-    "description": "Design engineering principles for making interfaces feel polished. Use when building UI components, implementing animations or hover states, or doing any visual detail work. Triggers on UI polish, \"feels off\", stagger animations, enter animations, theme switch transitions, border radius, optical alignment, image outlines, box shadows, icons, icon stroke weight, motion restraint.",
-    "description_zh": "设计工程原理，使界面感觉更加优雅。在构建 UI 组件、实现动画或悬停状态或执行任何视觉细节工作时使用。触发 UI 抛光、“感觉不太好”、交错动画、输入动画、主题切换过渡、边框半径、光学对齐、图像轮廓、框阴影、图标、图标描边粗细、运动限制。",
+    "description": "Polishes and improves the UI in your project. Covers concentric border radius, optical alignment, surface depth, contextual icons, hit areas and more.",
+    "description_zh": "完善和改进项目中的 UI。涵盖同心边框半径、光学对准、表面深度、上下文图标、命中区域等。",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "ca483852de23d48ab4f4ea71da37dad12bd70a95",
+    "commit": "267330e1adfc66a718fb65fa6918c1f06d0a689e",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
