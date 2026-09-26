@@ -34,7 +34,7 @@
     "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
     "description_zh": "您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。",
     "source_url": "https://github.com/obra/superpowers/tree/main/skills",
-    "commit": "5bf4e78011075bcfc0dc295f0724994cd123ee71",
+    "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
     "file": "brainstorming/SKILL.md",
     "branch": "main",
     "tags": [
