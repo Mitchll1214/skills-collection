@@ -19,7 +19,7 @@
     "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_zh": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-    "commit": "33375500bcea98d610eb30ce10ac4e59b89c390d",
+    "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
