@@ -5,9 +5,9 @@
 标签: dart, flutter, 移动开发, 架构模式</description></item><item><title>frontend-design</title><link>https://github.com/anthropics/skills/tree/main/skills/frontend-design</link><guid isPermaLink="false">https://github.com/anthropics/skills/tree/main/skills/frontend-design</guid><description>Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
 
 中文: 在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。
-标签: frontend, ui设计, 视觉设计, 设计规范</description></item><item><title>skills</title><link>https://github.com/obra/superpowers/tree/main/skills</link><guid isPermaLink="false">https://github.com/obra/superpowers/tree/main/skills</guid><description>You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
+标签: frontend, ui设计, 视觉设计, 设计规范</description></item><item><title>skills</title><link>https://github.com/obra/superpowers/tree/main/skills</link><guid isPermaLink="false">https://github.com/obra/superpowers/tree/main/skills</guid><description>You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation).
 
-中文: 您必须在任何创造性工作之前使用它 - 创建功能、构建组件、添加功能或修改行为。在实施之前探索用户意图、要求和设计。
+中文: You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation).
 标签: 需求探索, 创意规划, 头脑风暴, 工作流</description></item><item><title>better-ui</title><link>https://github.com/jakubkrehel/skills/tree/main/skills/better-ui</link><guid isPermaLink="false">https://github.com/jakubkrehel/skills/tree/main/skills/better-ui</guid><description>Polishes the surfaces, icons and motion in your project with exact values for border radius, optical alignment, shadows, icon states and animation.
 
 中文: Polishes the surfaces, icons and motion in your project with exact values for border radius, optical alignment, shadows, icon states and animation.
