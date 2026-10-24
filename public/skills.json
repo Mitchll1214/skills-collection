@@ -46,10 +46,10 @@
   },
   {
     "name": "better-ui",
-    "description": "Polishes the surfaces, icons and motion in your project with exact values for border radius, optical alignment, shadows, icon states and animation.",
-    "description_zh": "Polishes the surfaces, icons and motion in your project with exact values for border radius, optical alignment, shadows, icon states and animation.",
+    "description": "Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows, icon states and animation.",
+    "description_zh": "Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows, icon states and animation.",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "4c66b1fa86e9ab70187b43d7da9b6fdb29f2ef63",
+    "commit": "019ab7c199154f4509b55f12d84a4f5b578dc606",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 79 searchable styles (50 active), 192 product palettes and reasoning profiles, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "description_zh": "适用于 Web、移动设备和桌面的 UI/UX 设计智能。在设计、构建、审查或修复界面时应使用此技能，包括页面、组件、设计系统、可访问性、交互、响应式布局、排版、颜色、图表和特定于堆栈的 UI 实现。可搜索的本地数据：79 个可搜索样式（50 个活动）、192 个产品调色板和推理配置文件、74 个字体配对、119 个 UX 指南、105 个图标、17 个 GSAP 预设、25 种图表类型和 22 个堆栈。",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "28327f2f214d31bbd7555ed0c012a5df6484ed96",
+    "commit": "d14efff8ed1faa4187f004f79926f428c8074ec7",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
