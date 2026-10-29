@@ -19,7 +19,7 @@
     "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_zh": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-    "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "commit": "ca45fc496a3436251f191354091d557da31c15b5",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -99,7 +99,7 @@
     "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
     "description_zh": "Apple 的界面设计和流畅的物理运动方法已转化为网络。在构建或审查手势驱动的 UI、弹簧动画、拖动/滑动/纸张交互、动量和可中断过渡、半透明材质和深度、排版（光学尺寸、跟踪、引导）、简化运动或 Apple 风格界面背后的设计基础（反馈、空间一致性、约束）时使用。",
     "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
-    "commit": "2d228630ba1446365f614a108cb8252f1feda202",
+    "commit": "a81dbca07f2217b7103e510c0f13f8d5b017afc9",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -115,7 +115,7 @@
     "description": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "description_zh": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "source_url": "https://github.com/Nutlope/hallmark/tree/main/skills/hallmark",
-    "commit": "65b5e4090ed95ee3dc2ff7db55b69aef8c5ff7b5",
+    "commit": "8f6969f8922caabde9de1784959eae11ddf68073",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
