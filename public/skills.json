@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 79 searchable styles (50 active), 192 product palettes and reasoning profiles, 74 font pairings, 119 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "description_zh": "适用于 Web、移动设备和桌面的 UI/UX 设计智能。在设计、构建、审查或修复界面时应使用此技能，包括页面、组件、设计系统、可访问性、交互、响应式布局、排版、颜色、图表和特定于堆栈的 UI 实现。可搜索的本地数据：79 个可搜索样式（50 个活动）、192 个产品调色板和推理配置文件、74 个字体配对、119 个 UX 指南、105 个图标、17 个 GSAP 预设、25 种图表类型和 22 个堆栈。",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "3a13158ff1f32156cbe144108de48eda2ecaed9a",
+    "commit": "713eef51b04efc98d6fa565323b495f7c9c89fd4",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -115,7 +115,7 @@
     "description": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "description_zh": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "source_url": "https://github.com/Nutlope/hallmark/tree/main/skills/hallmark",
-    "commit": "4f6a46c6dc325d40ab268c93e25c7b96676ebccd",
+    "commit": "52328cb3129135499e4e178d4864ee90029dea2b",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
