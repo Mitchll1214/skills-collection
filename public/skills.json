@@ -115,7 +115,7 @@
     "description": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "description_zh": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "source_url": "https://github.com/Nutlope/hallmark/tree/main/skills/hallmark",
-    "commit": "de4999e0cd7a7a41df0b4e6903fa02fe9f1492a8",
+    "commit": "407fa689f4a276f2fd389208d271d0fef08f5058",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
