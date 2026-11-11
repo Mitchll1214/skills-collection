@@ -49,7 +49,7 @@
     "description": "Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows, icon states and animation.",
     "description_zh": "Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows, icon states and animation.",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "72bdd6121cd595f47fd21c9f23e374028c9cbacd",
+    "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 192 product palettes and reasoning profiles, 74 font pairings, 120 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "description_zh": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 192 product palettes and reasoning profiles, 74 font pairings, 120 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "9b675f0b13c9c28dec445e8ce4633c18c39b6467",
+    "commit": "6ae86f61f520d6ca229d2f40e070410638c908c5",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -115,7 +115,7 @@
     "description": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "description_zh": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
     "source_url": "https://github.com/Nutlope/hallmark/tree/main/skills/hallmark",
-    "commit": "407fa689f4a276f2fd389208d271d0fef08f5058",
+    "commit": "7e213cb6feb4ef82733bd66a0600b2e54ca0994c",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
