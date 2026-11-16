@@ -65,7 +65,7 @@
     "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 192 product palettes and reasoning profiles, 74 font pairings, 120 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "description_zh": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 192 product palettes and reasoning profiles, 74 font pairings, 120 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
     "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max",
-    "commit": "d643997c82e94742dd3bee43210b0198e8bbba3d",
+    "commit": "902bf616a0cc590d3f89f233f0c4e00072e549f0",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -99,7 +99,7 @@
     "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet interactions, momentum and interruptible transitions, translucent materials and depth, typography (optical sizing, tracking, leading), reduced-motion, or the design foundations (feedback, spatial consistency, restraint) behind Apple-style interfaces.",
     "description_zh": "Apple 的界面设计和流畅的物理运动方法已转化为网络。在构建或审查手势驱动的 UI、弹簧动画、拖动/滑动/纸张交互、动量和可中断过渡、半透明材质和深度、排版（光学尺寸、跟踪、引导）、简化运动或 Apple 风格界面背后的设计基础（反馈、空间一致性、约束）时使用。",
     "source_url": "https://github.com/emilkowalski/skills/tree/main/skills/apple-design",
-    "commit": "0f2e23b32bb1265e84cff8d3e75785fec953fb1b",
+    "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -142,6 +142,23 @@
       "移动开发",
       "Anti",
       "Real"
+    ]
+  },
+  {
+    "name": "beautify-github-readme",
+    "description": "Redesign GitHub README homepages or create project-native pure SVG, hybrid SVG-composed PNG/WebP, and opt-in animated GIF assets. Use when a user asks to beautify, redesign, rebrand, visually upgrade, simplify, or audit a GitHub README; create only a hero, section headers, diagrams, badges, motion graphics, showcase modules, or other README assets; or turn a repository homepage into a cohesive visual story. If whole-README work versus asset-only work is unclear, ask which scope the user wants. For hero-like assets where pure SVG and generated raster material are both viable, explain the tradeoffs and confirm the implementation before creating the asset.",
+    "description_zh": "Redesign GitHub README homepages or create project-native pure SVG, hybrid SVG-composed PNG/WebP, and opt-in animated GIF assets. Use when a user asks to beautify, redesign, rebrand, visually upgrade, simplify, or audit a GitHub README; create only a hero, section headers, diagrams, badges, motion graphics, showcase modules, or other README assets; or turn a repository homepage into a cohesive visual story. If whole-README work versus asset-only work is unclear, ask which scope the user wants. For hero-like assets where pure SVG and generated raster material are both viable, explain the tradeoffs and confirm the implementation before creating the asset.",
+    "source_url": "https://github.com/oil-oil/beautify-github-readme/tree/main/skills/beautify-github-readme",
+    "commit": "e2a8e3898d1ab84c9ea75df68e1ff916b370cbac",
+    "file": "SKILL.md",
+    "branch": "main",
+    "tags": [
+      "前端开发",
+      "界面设计",
+      "版本控制",
+      "文档",
+      "Redesign",
+      "GitHub"
     ]
   }
 ]
