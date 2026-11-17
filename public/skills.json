@@ -4,7 +4,7 @@
     "description": "本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Provider）、GoRouterナビゲーション、Dioネットワーキング、Freezedコード生成、クリーンアーキテクチャをカバー。",
     "description_zh": "生产就绪的 Dart 和 Flutter 模式涵盖空安全、不可变状态、异步配置、小部件架构、流行的状态管理框架（BLoC、Riverpod、Provider）、GoRouter 导航、Dio 网络、冻结代码生成和干净的架构。",
     "source_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/dart-flutter-patterns",
-    "commit": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+    "commit": "3f14a103a8694e51c1df9a806217a6d0b5f7a6f7",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -19,7 +19,7 @@
     "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_zh": "在构建新 UI 或重塑现有 UI 时提供独特、有意的视觉设计指南。有助于美学方向、排版以及做出不被视为模板默认值的选择。",
     "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
-    "commit": "1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064",
+    "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -49,7 +49,7 @@
     "description": "Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows, icon states and animation.",
     "description_zh": "Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows, icon states and animation.",
     "source_url": "https://github.com/jakubkrehel/skills/tree/main/skills/better-ui",
-    "commit": "a72290d140249813898ba8648becf6415abcb059",
+    "commit": "6c2120103600407a1a9986afd834e73144ef8998",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
@@ -149,7 +149,7 @@
     "description": "Redesign GitHub README homepages or create project-native pure SVG, hybrid SVG-composed PNG/WebP, and opt-in animated GIF assets. Use when a user asks to beautify, redesign, rebrand, visually upgrade, simplify, or audit a GitHub README; create only a hero, section headers, diagrams, badges, motion graphics, showcase modules, or other README assets; or turn a repository homepage into a cohesive visual story. If whole-README work versus asset-only work is unclear, ask which scope the user wants. For hero-like assets where pure SVG and generated raster material are both viable, explain the tradeoffs and confirm the implementation before creating the asset.",
     "description_zh": "Redesign GitHub README homepages or create project-native pure SVG, hybrid SVG-composed PNG/WebP, and opt-in animated GIF assets. Use when a user asks to beautify, redesign, rebrand, visually upgrade, simplify, or audit a GitHub README; create only a hero, section headers, diagrams, badges, motion graphics, showcase modules, or other README assets; or turn a repository homepage into a cohesive visual story. If whole-README work versus asset-only work is unclear, ask which scope the user wants. For hero-like assets where pure SVG and generated raster material are both viable, explain the tradeoffs and confirm the implementation before creating the asset.",
     "source_url": "https://github.com/oil-oil/beautify-github-readme/tree/main/skills/beautify-github-readme",
-    "commit": "e2a8e3898d1ab84c9ea75df68e1ff916b370cbac",
+    "commit": "cee51546f17542d547973e5292ae2e70855424d9",
     "file": "SKILL.md",
     "branch": "main",
     "tags": [
